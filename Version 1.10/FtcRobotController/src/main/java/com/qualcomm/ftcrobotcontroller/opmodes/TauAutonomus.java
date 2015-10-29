@@ -1,8 +1,8 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.UltrasonicSensor;
+import com.qualcomm.robotcore.hardware.*;
+import com.qualcomm.robotcore.util.Range;
 
 
 /**
@@ -10,8 +10,8 @@ import com.qualcomm.robotcore.hardware.UltrasonicSensor;
  */
 public class TauAutonomus extends OpMode
 {
-    DcMotor motorRight1;
     DcMotor motorRight2;
+    DcMotor motorRight1;
     DcMotor motorLeft1;
     DcMotor motorLeft2;
     UltrasonicSensor DistanceSensor;
@@ -21,6 +21,15 @@ public class TauAutonomus extends OpMode
     public TauAutonomus()
     {
 
+    }
+
+    public void sleep(long millis)
+    {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -38,22 +47,34 @@ public class TauAutonomus extends OpMode
     @Override
     public void loop()
     {
-        if (DistanceSensor.getUltrasonicLevel() <= 27.0 && DistanceSensor.getUltrasonicLevel() >= 0.0)
-        {
-            motorRight1.setPower(0);
-            motorRight2.setPower(0);
-            motorLeft1.setPower(0);
-            motorLeft2.setPower(0);
+        motorRight1.setPower(0);
+        motorRight2.setPower(0);
+        motorLeft1.setPower(0);
+        motorLeft2.setPower(0);
 
-        }
+        sleep(1000); // sleeps for one second
 
-        else
-        {
-            motorRight1.setPower(1);
-            motorRight2.setPower(1);
-            motorLeft1.setPower(1);
-            motorLeft2.setPower(1);
-        }
+        motorRight1.setPower(1);
+        motorRight2.setPower(1);
+        motorLeft1.setPower(1);
+        motorLeft2.setPower(1);
+
+        sleep(1000);
+
+        motorRight1.setPower(1);
+        motorRight2.setPower(1);
+        motorLeft1.setPower(0);
+        motorLeft2.setPower(0);
+
+        sleep(1000);
+
+        motorRight1.setPower(0);
+        motorRight2.setPower(0);
+        motorLeft1.setPower(1);
+        motorLeft2.setPower(1);
+
+        sleep(1000);
+
         telemetry.addData("Text", "*** Robot Data***");
         //telemetry.addData("DS","DS"+ String.format("%.2f", DistanceSensor));
         telemetry.addData("DS",  "DS: " + DistanceSensor.getUltrasonicLevel () );
@@ -61,9 +82,9 @@ public class TauAutonomus extends OpMode
 
     }
 
-    @Override
-    public void stop()
-    {
-    }
+    //@Override
+    //public void stop()
+    //{
+    //}
 
 }
