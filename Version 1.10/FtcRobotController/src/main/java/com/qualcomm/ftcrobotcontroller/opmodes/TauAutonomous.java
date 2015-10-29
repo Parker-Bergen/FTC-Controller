@@ -82,9 +82,9 @@ public class TauAutonomous extends OpMode
 
     }
 
-    //@Override
-    //public void stop()
-    //{
-    //}
+    @Override
+    public void stop()
+    {
+    }
 
 }
