@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.util.Range;
 /**
  * Created by Pbergen on 9/28/2015.
  */
-public class TauAutonomus extends OpMode
+public class TauAutonomous extends OpMode
 {
     DcMotor motorRight2;
     DcMotor motorRight1;
@@ -18,7 +18,7 @@ public class TauAutonomus extends OpMode
     double dis = 0;
 
 
-    public TauAutonomus()
+    public TauAutonomous()
     {
 
     }
