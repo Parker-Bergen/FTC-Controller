@@ -10,17 +10,19 @@ import com.qualcomm.robotcore.util.Range;
  */
 public class TauAutonomous extends OpMode
 {
-    DcMotor motorRight2;
     DcMotor motorRight1;
+    DcMotor motorRight2;
     DcMotor motorLeft1;
     DcMotor motorLeft2;
+    Servo servo1;
     UltrasonicSensor DistanceSensor;
-    double dis = 0;
+
+    double s1position;
 
 
     public TauAutonomous()
     {
-
+        s1position = 0.0d;
     }
 
     public void sleep(long millis)
@@ -42,6 +44,8 @@ public class TauAutonomous extends OpMode
         DistanceSensor = hardwareMap.ultrasonicSensor.get("Distance");
         motorRight1.setDirection(DcMotor.Direction.REVERSE);
         motorRight2.setDirection(DcMotor.Direction.REVERSE);
+
+        servo1 = hardwareMap.servo.get("servo");
     }
 
     @Override
@@ -77,7 +81,8 @@ public class TauAutonomous extends OpMode
 
         telemetry.addData("Text", "*** Robot Data***");
         //telemetry.addData("DS","DS"+ String.format("%.2f", DistanceSensor));
-        telemetry.addData("DS",  "DS: " + DistanceSensor.getUltrasonicLevel () );
+        telemetry.addData("DS",  "DS: " + DistanceSensor.getUltrasonicLevel());
+        telemetry.addData("Servo",  "Servo: " + servo1.getPosition());
 
 
     }
@@ -86,5 +91,4 @@ public class TauAutonomous extends OpMode
     public void stop()
     {
     }
-
 }

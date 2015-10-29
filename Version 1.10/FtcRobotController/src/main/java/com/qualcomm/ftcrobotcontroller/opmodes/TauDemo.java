@@ -1,9 +1,7 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.Servo;
-import com.qualcomm.robotcore.hardware.UltrasonicSensor;
+import com.qualcomm.robotcore.hardware.*;
 import com.qualcomm.robotcore.util.Range;
 
 
@@ -19,11 +17,21 @@ public class TauDemo extends OpMode
     Servo servo1;
     UltrasonicSensor DistanceSensor;
 
-    double s1position = 0;
+    double s1position;
 
 
     public TauDemo()
     {
+        s1position = 0.0d;
+    }
+
+    public void sleep(long millis)
+    {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -53,7 +61,7 @@ public class TauDemo extends OpMode
         left =  (float)scaleInput(left);
 
 
-        if (DistanceSensor.getUltrasonicLevel () <= 27.0 && DistanceSensor.getUltrasonicLevel () >= 0.0 && left >0 && right >0)
+        if (DistanceSensor.getUltrasonicLevel () <= 27.0 && DistanceSensor.getUltrasonicLevel () >= 0.0 && left > 0 && right > 0)
         {
             motorRight1.setPower(0);
             motorRight2.setPower(0);
@@ -61,7 +69,6 @@ public class TauDemo extends OpMode
             motorLeft2.setPower(0);
 
         }
-
         else
         {
             motorRight1.setPower(right);
@@ -84,12 +91,10 @@ public class TauDemo extends OpMode
 
         if (gamepad2.left_bumper)
         {
-
         }
 
         if (gamepad2.right_bumper)
         {
-
         }
 
         if (gamepad2.y)
@@ -101,15 +106,14 @@ public class TauDemo extends OpMode
         {
             s1position = -1.0;
         }
-
         else
         {
-
         }
+
         telemetry.addData("Text", "*** Robot Data***");
         //telemetry.addData("DS","DS"+ String.format("%.2f", DistanceSensor));
-        telemetry.addData("DS",  "DS: " + DistanceSensor.getUltrasonicLevel () );
-        telemetry.addData("Servo",  "Servo: " + servo1.getPosition () );
+        telemetry.addData("DS",  "DS: " + DistanceSensor.getUltrasonicLevel());
+        telemetry.addData("Servo",  "Servo: " + servo1.getPosition());
 
         servo1.setPosition(s1position);
 
@@ -141,5 +145,4 @@ public class TauDemo extends OpMode
 
         return dScale;
     }
-
 }
