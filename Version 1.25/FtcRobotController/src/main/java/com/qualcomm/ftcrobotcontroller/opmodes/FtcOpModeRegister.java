@@ -97,6 +97,6 @@ public class FtcOpModeRegister implements OpModeRegister {
     //manager.register("PushBotIrSeek", PushBotIrSeek.java);
     //manager.register("PushBotSquare", PushBotSquare.java);
     manager.register("TauDemo", TauDemo.class);
-    manager.register("TauAutonomous", TauAutonomous.class);
+    manager.register("TauLineFollowing", TauAutonomous.class);
   }
 }
