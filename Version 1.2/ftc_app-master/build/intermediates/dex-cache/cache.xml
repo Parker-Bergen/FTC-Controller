@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\J\Documents\FTC Res-Q\FTC Android\Version 1.2\ftc_app-master\FtcRobotController\build\intermediates\exploded-aar\RobotCore-release\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="a5fadb0dbb392372142275356999752343e21148">
+        <dex dex="C:\Users\J\Documents\FTC Res-Q\FTC Android\Version 1.2\ftc_app-master\FtcRobotController\build\intermediates\pre-dexed\debug\classes-eb11f05afb2f14f65d0484f912c459a7782fd898.jar" />
+    </item>
+    <item
+        jar="C:\Users\J\Documents\FTC Res-Q\FTC Android\Version 1.2\ftc_app-master\FtcRobotController\build\intermediates\exploded-aar\Analytics-release\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="23c74caa2b901107adc4d0aec343c5b8e8be86fb">
+        <dex dex="C:\Users\J\Documents\FTC Res-Q\FTC Android\Version 1.2\ftc_app-master\FtcRobotController\build\intermediates\pre-dexed\debug\classes-492202cddcddca452c43f7ab9431cbd8a64a4c48.jar" />
+    </item>
+    <item
+        jar="C:\Users\J\Documents\FTC Res-Q\FTC Android\Version 1.2\ftc_app-master\FtcRobotController\build\intermediates\exploded-aar\WirelessP2p-release\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="ebf8372b5bc9dc9f596ed438df36481099d51c41">
+        <dex dex="C:\Users\J\Documents\FTC Res-Q\FTC Android\Version 1.2\ftc_app-master\FtcRobotController\build\intermediates\pre-dexed\debug\classes-3184103a83820e8443bbc5d9e2785e5f581ab94f.jar" />
+    </item>
+    <item
+        jar="C:\Users\J\Documents\FTC Res-Q\FTC Android\Version 1.2\ftc_app-master\FtcRobotController\build\intermediates\exploded-aar\Hardware-release\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="16efc4540aa5ac1cce5fde6c57edc09f5bc12e92">
+        <dex dex="C:\Users\J\Documents\FTC Res-Q\FTC Android\Version 1.2\ftc_app-master\FtcRobotController\build\intermediates\pre-dexed\debug\classes-89b0bc4e88ddeef73400d5492ac63b8743dc80bb.jar" />
+    </item>
+    <item
+        jar="C:\Users\J\Documents\FTC Res-Q\FTC Android\Version 1.2\ftc_app-master\FtcRobotController\build\intermediates\exploded-aar\ModernRobotics-release\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="f71d91f91744fdbed74e2bf39f91268d1580cefc">
+        <dex dex="C:\Users\J\Documents\FTC Res-Q\FTC Android\Version 1.2\ftc_app-master\FtcRobotController\build\intermediates\pre-dexed\debug\classes-fb76b389998221ab0b33dcdbdcc5005c65fc3a7e.jar" />
+    </item>
+    <item
+        jar="C:\Users\J\Documents\FTC Res-Q\FTC Android\Version 1.2\ftc_app-master\FtcRobotController\build\intermediates\exploded-aar\FtcCommon-release\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="37738feb62fd1abd7395899609373e990483750f">
+        <dex dex="C:\Users\J\Documents\FTC Res-Q\FTC Android\Version 1.2\ftc_app-master\FtcRobotController\build\intermediates\pre-dexed\debug\classes-b3314169598806b79e64918f69358e9fd6350d08.jar" />
+    </item>
+
+</items>

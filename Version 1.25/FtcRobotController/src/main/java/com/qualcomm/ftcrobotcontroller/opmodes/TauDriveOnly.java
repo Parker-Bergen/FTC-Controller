@@ -1,27 +1,25 @@
 package com.qualcomm.ftcrobotcontroller.opmodes;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.hardware.*;
+import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.Range;
 
 
 /**
  * Created by Pbergen on 8/4/2015.
  */
-public class TauDemo extends OpMode
+public class TauDriveOnly extends OpMode
 {
     DcMotor motorRight1;
     DcMotor motorRight2;
     DcMotor motorLeft1;
     DcMotor motorLeft2;
-    DcMotor Hang;
-    Servo servo1;
-    UltrasonicSensor DistanceSensor;
+
 
     double s1position;
 
 
-    public TauDemo()
+    public TauDriveOnly()
     {
         s1position = 0.0d;
     }
@@ -38,23 +36,24 @@ public class TauDemo extends OpMode
     @Override
     public void init()
     {
-        motorRight1 = hardwareMap.dcMotor.get("Left1");
-        motorRight2 = hardwareMap.dcMotor.get("Left2");
-        motorLeft1 = hardwareMap.dcMotor.get("Right1");
-        motorLeft2 = hardwareMap.dcMotor.get("Right2");
-        Hang = hardwareMap.dcMotor.get("hang");
-        DistanceSensor = hardwareMap.ultrasonicSensor.get("Distance");
+        motorRight1 = hardwareMap.dcMotor.get("Right1");
+        motorRight2 = hardwareMap.dcMotor.get("Right2");
+        motorLeft1 = hardwareMap.dcMotor.get("Left1");
+        motorLeft2 = hardwareMap.dcMotor.get("Left2");
+
+
         motorRight1.setDirection(DcMotor.Direction.REVERSE);
         motorRight2.setDirection(DcMotor.Direction.REVERSE);
 
-        servo1 = hardwareMap.servo.get("servo");
+
+
     }
 
     @Override
     public void loop()
     {
-        float left = gamepad1.left_stick_y;
-        float right = gamepad1.right_stick_y;
+        float right = gamepad1.left_stick_y;
+        float left = gamepad1.right_stick_y;
 
         right = Range.clip(right, -1, 1);
         left = Range.clip(left, -1, 1);
@@ -62,35 +61,10 @@ public class TauDemo extends OpMode
         right = (float)scaleInput(right);
         left =  (float)scaleInput(left);
 
-
-        if (DistanceSensor.getUltrasonicLevel () <= 27.0 && DistanceSensor.getUltrasonicLevel () >= 0.0 && left > 0 && right > 0)
-        {
-            motorRight1.setPower(0);
-            motorRight2.setPower(0);
-            motorLeft1.setPower(0);
-            motorLeft2.setPower(0);
-
-        }
-        else
-        {
-            motorRight1.setPower(right);
-            motorRight2.setPower(right);
-            motorLeft1.setPower(left);
-            motorLeft2.setPower(left);
-        }
-
-
-        if (gamepad1.left_bumper) {
-            // if the A button is pushed on gamepad1, increment the position of
-            // the arm servo.
-            Hang.setPower(-1);
-        }
-
-        if (gamepad1.right_bumper) {
-            // if the Y button is pushed on gamepad1, decrease the position of
-            // the arm servo
-            Hang.setPower(1);
-        }
+        motorRight1.setPower(right);
+        motorRight2.setPower(right);
+        motorLeft1.setPower(left);
+        motorLeft2.setPower(left);
 
 
         if (gamepad2.left_bumper)
@@ -110,17 +84,31 @@ public class TauDemo extends OpMode
         {
             s1position = -1.0;
         }
+
+        if (gamepad1.a)
+        {
+            // if the A button is pushed on gamepad1, increment the position of
+            // the arm servo.
+
+        }
+        if (gamepad1.y)
+        {
+            // if the Y button is pushed on gamepad1, decrease the position of
+            // the arm servo
+        }
+
+        if (gamepad1.b)
+        {
+            // if the Y button is pushed on gamepad1, decrease the position of
+            // the arm servo
+        }
         else
         {
-            Hang.setPower(0);
         }
 
         telemetry.addData("Text", "*** Robot Data***");
         //telemetry.addData("DS","DS"+ String.format("%.2f", DistanceSensor));
-        telemetry.addData("DS",  "DS: " + DistanceSensor.getUltrasonicLevel());
-        telemetry.addData("Servo",  "Servo: " + servo1.getPosition());
 
-        servo1.setPosition(s1position);
     }
 
     @Override
